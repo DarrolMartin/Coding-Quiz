@@ -44,3 +44,31 @@ document.addEventListener("DOMContentLoaded", function () {
           correctIndex: 2,
         },
       ];
+      // Event listeners
+    startButton.addEventListener("click", startQuiz);
+    choicesContainer.addEventListener("click", handleChoiceClick);
+    submitButton.addEventListener("click", saveScore);
+
+    function startQuiz() {
+        startButton.parentElement.classList.add("hide");
+        document.getElementById("questions").classList.remove("hide");
+        loadQuestion();
+        startTimer();
+      }
+
+      function loadQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+    
+        if (currentQuestion) {
+          questionTitle.textContent = currentQuestion.question;
+          choicesContainer.innerHTML = "";
+    
+          currentQuestion.choices.forEach((choice, index) => {
+            const button = document.createElement("button");
+            button.textContent = `${index + 1}. ${choice}`;
+            choicesContainer.appendChild(button);
+          });
+        } else {
+          endQuiz();
+        }
+      }
