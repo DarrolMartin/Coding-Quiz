@@ -1,11 +1,7 @@
-// script.js
 
-console.log("question.js is connected!");
 
-// Your other code here
+// console.log("question.js is connected!")
 
-// script.js
+// alert("question.js is connected!")
 
-alert("question.js is connected!");
-
-// Your other code here
+ 
